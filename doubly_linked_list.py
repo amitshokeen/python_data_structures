@@ -96,8 +96,23 @@ class DoublyLinkedList:
                 temp = temp.prev
         return temp
 
+    def set_value(self, index, value):
+        if self.length == 0:
+            return None
+        elif index < 0 or index >= self.length:
+            print("Index out of bounds")
+            return None
+        temp = self.head
+        if index < self.length/2:
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length-1, index, -1):
+                temp = temp.prev
+        temp.value = value
+        return temp
 
-        
 class Test:
     def test_pop():
         my_doubly_linked_list = DoublyLinkedList(7)
@@ -152,6 +167,17 @@ class Test:
         except Exception as e:
             print("Exception raised:", e)
 
+    def test_set_value():
+        dll = DoublyLinkedList(3)
+        dll.append(4)
+        dll.append(1)
+        try:
+            print(dll.set_value(2,9).value)
+            print(dll.print())
+            print(dll.set_value(7,0).value)
+            print(dll.print())
+        except Exception as e:
+            print("Exception raised:", e)
 
 
 
@@ -159,5 +185,7 @@ class Test:
 # Test.test_pop()
 # Test.test_prepend()
 # Test.test_pop_first()
-Test.test_get()
+# Test.test_get()
+Test.test_set_value()
+
 

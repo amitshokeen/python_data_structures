@@ -13,3 +13,4 @@
 4. Prepend to a doubly linked list
 5. Pop the first item
 6. Get the value at the specified index
+7. Set a value at the specified index
