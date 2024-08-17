@@ -67,59 +67,97 @@ class DoublyLinkedList:
         if self.length == 0:
             return None
         elif self.length == 1:
+            temp = self.head
             self.head = None
             self.tail = None
             self.length -= 1
+            return temp
         else:
             temp = self.head
             self.head = self.head.next
             temp.next = None
             self.head.prev = None
             self.length -= 1
+            return temp
+        
+    def get(self, index):
+        if self.length == 0:
+            return None
+        elif index < 0 or index >= self.length:
+            print("Index out of bounds")
+            return None
+        temp = self.head
+        if index < self.length/2:
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length-1, index, -1):
+                temp = temp.prev
         return temp
+
+
         
-        
-def test_pop():
-    my_doubly_linked_list = DoublyLinkedList(7)
-    my_doubly_linked_list.append(4)
-    my_doubly_linked_list.append(3)
-    my_doubly_linked_list.append(9)
-    my_doubly_linked_list.append(0)
-    my_doubly_linked_list.append(1)
-    my_doubly_linked_list.print()
-    popped = my_doubly_linked_list.pop()
-    print(popped.value)
-    my_doubly_linked_list.print()
+class Test:
+    def test_pop():
+        my_doubly_linked_list = DoublyLinkedList(7)
+        my_doubly_linked_list.append(4)
+        my_doubly_linked_list.append(3)
+        my_doubly_linked_list.append(9)
+        my_doubly_linked_list.append(0)
+        my_doubly_linked_list.append(1)
+        my_doubly_linked_list.print()
+        popped = my_doubly_linked_list.pop()
+        print(popped.value)
+        my_doubly_linked_list.print()
 
-    dll = DoublyLinkedList(6)
-    dll.print()
-    print(dll.pop().value)
-    dll.print()    
+        dll = DoublyLinkedList(6)
+        dll.print()
+        print(dll.pop().value)
+        dll.print()    
 
-def test_prepend():
-    my_doubly_linked_list = DoublyLinkedList(7)
-    my_doubly_linked_list.append(4)
-    my_doubly_linked_list.append(3)
-    my_doubly_linked_list.append(9)
-    my_doubly_linked_list.append(0)
-    my_doubly_linked_list.append(1)
-    my_doubly_linked_list.print()
-    my_doubly_linked_list.prepend(2)
-    my_doubly_linked_list.print()
+    def test_prepend():
+        my_doubly_linked_list = DoublyLinkedList(7)
+        my_doubly_linked_list.append(4)
+        my_doubly_linked_list.append(3)
+        my_doubly_linked_list.append(9)
+        my_doubly_linked_list.append(0)
+        my_doubly_linked_list.append(1)
+        my_doubly_linked_list.print()
+        my_doubly_linked_list.prepend(2)
+        my_doubly_linked_list.print()
 
-def test_pop_first():
-    dll = DoublyLinkedList(7)
-    dll.append(4)
-    dll.append(3)
-    dll.append(9)
-    dll.append(0)
-    dll.append(1)
-    dll.print()
-    print(dll.pop_first().value)
-    dll.print()
+    def test_pop_first():
+        dll = DoublyLinkedList(7)
+        dll.append(4)
+        dll.print()
+        print(dll.pop_first().value)
+        dll.print()
+        print(dll.pop_first().value)
+        dll.print()
 
-test_pop()
-test_prepend()
-test_pop_first()
+    def test_get():
+        dll = DoublyLinkedList(1)
+        dll.append(2)
+        dll.append(3)
+        dll.append(4)
+        dll.append(5)
+        try:
+            print(dll.get(0).value)
+            print(dll.get(1).value)
+            print(dll.get(2).value)
+            print(dll.get(3).value)
+            print(dll.get(4).value)
+            print(dll.get(5).value)
+        except Exception as e:
+            print("Exception raised:", e)
 
+
+
+
+
+# Test.test_pop()
+# Test.test_prepend()
+# Test.test_pop_first()
+Test.test_get()
 
