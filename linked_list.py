@@ -55,7 +55,7 @@ class LinkedList:
         prev1 = dummy1
         prev2 = dummy2
         current = self.head
-        while current.next is not None:
+        while current is not None:
             if current.value < x:
                 prev1.next = current
                 prev1 = current
@@ -68,6 +68,18 @@ class LinkedList:
         prev1.next = dummy2.next
         self.head = dummy1.next
         return True
+    
+    def binary_to_decimal(self):
+        runner = self.head
+        index = self.length-1
+        decimal_value = 0
+        while runner is not None:
+            decimal_value += runner.value * 2**(index)
+            index -= 1
+            runner = runner.next
+        return decimal_value
+        
+
 
 ll = LinkedList(3)
 ll.append(5)
@@ -78,7 +90,12 @@ ll.append(5)
 ll.append(9)
 ll.append(1)
 ll.print() # 3->5->3->7->8->5->9->1
-#ll.remove_duplicates()
+ll.remove_duplicates()
 ll.print() # 3->5->7->8->9->1
-ll.partition_list(7)
-ll.print()
+ll.partition_list(7) 
+ll.print() # 3->5->1->7->8->9
+ll.binary_to_decimal()
+ll = LinkedList(0)
+ll.append(1)
+ll.append(1)
+print(ll.binary_to_decimal())
