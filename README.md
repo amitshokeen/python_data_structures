@@ -11,4 +11,5 @@
 2. Print the linked list
 3. Pop the doubly linked list
 4. Prepend to a doubly linked list
-5. 
+5. Pop the first item
+6. 
