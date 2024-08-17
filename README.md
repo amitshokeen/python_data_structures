@@ -4,3 +4,4 @@
 2. Print the linked list
 3. Remove duplicates from the linked list
 4. Partition a list
+5. Convert a binary linked list to a decimal value (e.g. 1->0->0 = 4)
