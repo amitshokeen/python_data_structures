@@ -9,3 +9,6 @@
 ## Doubly linked list
 1. Append to a doubly linked list
 2. Print the linked list
+3. Pop the doubly linked list
+4. Prepend to a doubly linked list
+5. 
