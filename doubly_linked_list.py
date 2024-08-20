@@ -1,3 +1,4 @@
+import pytest
 class Node:
     def __init__(self, value):
         self.value = value
@@ -189,3 +190,5 @@ class Test:
 Test.test_set_value()
 
 
+# if __name__ == "__main__":
+#     main()
